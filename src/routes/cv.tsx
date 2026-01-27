@@ -14,7 +14,7 @@ function CVPage() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="mb-20"
+        className="mb-16"
       >
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-primary tracking-tight">
           CV
@@ -26,12 +26,12 @@ function CVPage() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.1 }}
-        className="mb-24"
+        className="mb-16"
       >
-        <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-primary mb-16 tracking-tight">
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-12 tracking-tight">
           ARBEIDSERFARING
         </h2>
-        <div className="space-y-12">
+        <div className="space-y-8">
           {experience.map((exp, index) => (
             <motion.div
               key={exp.company}
@@ -39,21 +39,23 @@ function CVPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.15 + index * 0.08 }}
             >
-              <div className="pb-12 border-b border-secondary/20">
-                <h3 className="text-2xl md:text-3xl font-bold text-primary mb-2">
-                  {exp.title}
-                </h3>
-                <p className="text-lg text-secondary font-medium mb-1">
+              <div className="border-l-4 border-primary pl-6 pb-8">
+                <div className="flex items-start justify-between gap-4 mb-2">
+                  <h3 className="text-xl md:text-2xl font-bold text-primary">
+                    {exp.title}
+                  </h3>
+                  {exp.type && (
+                    <span className="text-xs font-bold uppercase tracking-wider px-3 py-1 border border-primary text-primary whitespace-nowrap">
+                      {exp.type}
+                    </span>
+                  )}
+                </div>
+                <p className="text-base text-secondary font-medium mb-1">
                   {exp.company}
                 </p>
-                {exp.type && (
-                  <p className="text-sm text-secondary uppercase tracking-wide mb-2">
-                    {exp.type}
-                  </p>
-                )}
-                <p className="text-sm text-secondary/70">{exp.period}</p>
+                <p className="text-sm text-secondary/70 mb-2">{exp.period}</p>
                 {exp.description && (
-                  <p className="mt-4 text-secondary leading-relaxed">{exp.description}</p>
+                  <p className="text-sm text-secondary">{exp.description}</p>
                 )}
               </div>
             </motion.div>
@@ -67,10 +69,10 @@ function CVPage() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.2 }}
       >
-        <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-primary mb-16 tracking-tight">
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-12 tracking-tight">
           UTDANNING
         </h2>
-        <div className="space-y-12">
+        <div className="space-y-8">
           {education.map((edu, index) => (
             <motion.div
               key={edu.institution}
@@ -78,11 +80,11 @@ function CVPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.25 + index * 0.08 }}
             >
-              <div className="pb-12 border-b border-secondary/20 last:border-b-0">
-                <h3 className="text-2xl md:text-3xl font-bold text-primary mb-2">
+              <div className="border-l-4 border-primary pl-6 pb-8">
+                <h3 className="text-xl md:text-2xl font-bold text-primary mb-1">
                   {edu.degree}
                 </h3>
-                <p className="text-lg text-secondary font-medium mb-2">
+                <p className="text-base text-secondary font-medium mb-1">
                   {edu.institution}
                 </p>
                 <p className="text-sm text-secondary/70">{edu.period}</p>
