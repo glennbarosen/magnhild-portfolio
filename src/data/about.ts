@@ -1,1 +1,1 @@
-export const aboutContent = `jeg jobber med kommunikasjon... etc.. blabla`;
+export const aboutContent = `Jeg jobber som kommunikasjonsrådgiver og innholdsprodusent, og holder for øyeblikket på å ferdigstille en masteroppgave i strategisk kommunikasjon. Jeg trives godt med varierte oppgaver, gjerne knyttet til kreativ kommunikasjon, tekst- og innholdsproduksjon i digitale kanaler.`;

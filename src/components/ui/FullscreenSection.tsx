@@ -19,7 +19,7 @@ export function FullscreenSection({ left, right, id, className = '' }: Fullscree
       </div>
 
       {/* Right column */}
-      <div className="flex flex-col justify-end items-start md:items-start lg:items-end h-auto lg:h-full py-12 md:py-16 lg:py-20">
+      <div className="flex flex-col justify-start items-start md:items-start lg:items-end h-auto lg:h-full py-12 md:py-16 lg:py-20">
         {right}
       </div>
     </section>

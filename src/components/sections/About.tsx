@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { FullscreenSection } from '@/components/ui';
-import { fadeInUpLarge, viewportAlways } from '@/lib/animations';
+import { fadeInUpLarge, fadeInUp, viewportAlways } from '@/lib/animations';
+import { aboutContent } from '@/data/about';
 
 interface AboutProps {
   id?: string;
@@ -25,7 +26,20 @@ export function About({ id }: AboutProps) {
     </div>
   );
 
-  const rightContent = null;
+  const rightContent = (
+    <div className="flex justify-start lg:justify-end w-full">
+      <motion.p
+        variants={fadeInUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewportAlways}
+        transition={{ delay: 0.2 }}
+        className="text-lg md:text-xl text-secondary/80 max-w-md text-left lg:text-right leading-relaxed"
+      >
+        {aboutContent}
+      </motion.p>
+    </div>
+  );
 
   return <FullscreenSection id={id} left={leftContent} right={rightContent} />;
 }

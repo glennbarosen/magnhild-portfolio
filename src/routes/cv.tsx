@@ -1,7 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { motion } from 'framer-motion'
-import { experience, education } from '@/data/cv'
-import { CVExperience, CVEducation } from '@/components/sections'
+import { experience, education, volunteer } from '@/data/cv'
+import { CVExperience, CVEducation, CVVolunteer } from '@/components/sections'
 import { SEO } from '@/components/ui'
 import { fadeInUp } from '@/lib/animations'
 import { PAGE_META, SITE_CONFIG } from '@/constants/seo'
@@ -32,7 +32,10 @@ function CVPage() {
       </motion.div>
 
       <CVExperience experience={experience} />
+      <div className="my-16 md:my-20 lg:my-24" />
       <CVEducation education={education} />
+      <div className="my-16 md:my-20 lg:my-24" />
+      <CVVolunteer volunteer={volunteer} />
     </div>
   )
 }
