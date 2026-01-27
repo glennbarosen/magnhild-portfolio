@@ -16,6 +16,12 @@ declare module '@tanstack/react-router' {
   }
 }
 
+// Handle GitHub Pages SPA redirect
+if (window.location.pathname !== '/' && window.location.search.startsWith('?p=')) {
+  const path = window.location.search.slice(3).replace(/~and~/g, '&')
+  window.history.replaceState(null, '', path)
+}
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <RouterProvider router={router} />
