@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { FullscreenSection, Icon } from '@/components/ui';
 import { SOCIAL_LINKS } from '@/constants/navigation';
-import { fadeInUpLarge, fadeInUp, viewportAlways } from '@/lib/animations';
+import { fadeInUpLarge, fadeInUp, viewportAlways, wiggleAnimation } from '@/lib/animations';
 
 interface ContactProps {
   id?: string;
@@ -36,6 +36,7 @@ export function Contact({ id }: ContactProps) {
           whileInView="visible"
           viewport={viewportAlways}
           transition={{ delay: 0.2 }}
+          whileHover={wiggleAnimation}
           className="inline-flex items-center justify-start lg:justify-center gap-3 px-8 py-4 bg-primary text-white hover:bg-primary/90 transition-colors duration-300 font-bold text-base md:text-lg w-full"
         >
           <Icon name="mail" className="w-5 h-5" />
@@ -50,6 +51,7 @@ export function Contact({ id }: ContactProps) {
           whileInView="visible"
           viewport={viewportAlways}
           transition={{ delay: 0.3 }}
+          whileHover={wiggleAnimation}
           className="inline-flex items-center justify-start lg:justify-center gap-3 px-8 py-4 bg-primary text-white hover:bg-primary/90 transition-colors duration-300 font-bold text-base md:text-lg w-full"
         >
           <Icon name="linkedin" className="w-5 h-5" />

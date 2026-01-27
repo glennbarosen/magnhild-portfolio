@@ -131,3 +131,18 @@ export const backdropAnimation: Variants = {
   visible: { opacity: 1 },
   exit: { opacity: 0 },
 };
+
+// Shake animation for playful interactions
+export const shakeAnimation: Variants = {
+  idle: { rotate: 0 },
+  shake: {
+    rotate: [0, -3, 3, -3, 3, -2, 2, 0],
+    transition: { duration: 0.5 },
+  },
+};
+
+// Wiggle animation for buttons
+export const wiggleAnimation = {
+  rotate: [0, -2, 2, -2, 2, 0],
+  transition: { duration: 0.4 },
+};
