@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { FullscreenSection } from "../ui/FullscreenSection";
+import profileImage from "../../assets/mlm-profile.jpeg";
 
 export function Hero() {
   const nameLines = ["MAGNHILD", "LUNDEBREKKE", "MYSKJA"];
@@ -71,7 +72,7 @@ export function Hero() {
     <div className="flex flex-col justify-end items-center md:items-end h-full w-full">
       {/* Profile image - full width on mobile, smaller on desktop */}
       <motion.img
-        src="/src/assets/mlm-profile.jpeg"
+        src={profileImage}
         alt="Magnhild Lundebrekke Myskja"
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
