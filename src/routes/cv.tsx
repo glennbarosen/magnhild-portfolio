@@ -1,5 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { AnimatedSection } from '../components/ui/AnimatedSection'
+import { experience, education } from '../data/cv'
 
 export const Route = createFileRoute('/cv')({
   component: CVPage,
@@ -17,40 +18,36 @@ function CVPage() {
 
         {/* Education */}
         <AnimatedSection delay={0.1} className="mb-12">
-          <h2 className="text-2xl font-semibold text-primary mb-4">Utdanning</h2>
-          <div className="space-y-4">
-            <div className="border-l-2 border-accent pl-4">
-              <h3 className="font-medium text-primary">[Grad/Tittel]</h3>
-              <p className="text-secondary">[Institusjon]</p>
-              <p className="text-sm text-secondary/70">[År - År]</p>
-            </div>
+          <h2 className="text-2xl font-semibold text-primary mb-6">Utdanning</h2>
+          <div className="space-y-6">
+            {education.map((edu, index) => (
+              <AnimatedSection key={index} delay={0.15 + index * 0.1}>
+                <div className="border-l-2 border-accent pl-4">
+                  <h3 className="font-bold text-primary">{edu.degree}</h3>
+                  <p className="text-secondary">{edu.institution}</p>
+                  <p className="text-sm text-secondary/70">{edu.period}</p>
+                </div>
+              </AnimatedSection>
+            ))}
           </div>
         </AnimatedSection>
 
         {/* Experience */}
         <AnimatedSection delay={0.2} className="mb-12">
-          <h2 className="text-2xl font-semibold text-primary mb-4">Arbeidserfaring</h2>
+          <h2 className="text-2xl font-semibold text-primary mb-6">Arbeidserfaring</h2>
           <div className="space-y-6">
-            <div className="border-l-2 border-accent pl-4">
-              <h3 className="font-medium text-primary">[Stillingstittel]</h3>
-              <p className="text-secondary">[Selskap]</p>
-              <p className="text-sm text-secondary/70">[År - Nåværende]</p>
-              <ul className="mt-2 text-secondary list-disc list-inside">
-                <li>[Ansvarsområde/Oppgave]</li>
-                <li>[Ansvarsområde/Oppgave]</li>
-              </ul>
-            </div>
-          </div>
-        </AnimatedSection>
-
-        {/* Skills */}
-        <AnimatedSection delay={0.3} className="mb-12">
-          <h2 className="text-2xl font-semibold text-primary mb-4">Ferdigheter</h2>
-          <div className="flex flex-wrap gap-2">
-            {['Strategisk kommunikasjon', 'Innholdsproduksjon', 'Sosiale medier', 'PR', 'Tekstforfatter', 'Prosjektledelse'].map((skill) => (
-              <span key={skill} className="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm">
-                {skill}
-              </span>
+            {experience.map((exp, index) => (
+              <AnimatedSection key={index} delay={0.25 + index * 0.1}>
+                <div className="border-l-2 border-accent pl-4">
+                  <div className="flex items-center justify-between">
+                    <h3 className="font-bold text-primary">{exp.title}</h3>
+                    {exp.type && <span className="text-xs bg-accent/10 text-accent px-2 py-1 rounded">{exp.type}</span>}
+                  </div>
+                  <p className="text-secondary">{exp.company}</p>
+                  <p className="text-sm text-secondary/70">{exp.period}</p>
+                  {exp.description && <p className="mt-2 text-secondary text-sm">{exp.description}</p>}
+                </div>
+              </AnimatedSection>
             ))}
           </div>
         </AnimatedSection>
@@ -60,7 +57,7 @@ function CVPage() {
           <a
             href="/assets/cv.pdf"
             download
-            className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors"
+            className="inline-flex items-center gap-2 px-10 py-5 bg-primary text-white hover:bg-primary/90 transition-colors font-bold text-base md:text-lg"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />

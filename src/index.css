@@ -13,10 +13,22 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
   }
   
   body {
     @apply bg-background text-primary antialiased;
     font-family: var(--font-sans);
+  }
+}
+
+@layer components {
+  .section-full {
+    min-height: 100dvh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    scroll-snap-align: start;
   }
 }
