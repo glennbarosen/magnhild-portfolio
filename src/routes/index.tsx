@@ -1,8 +1,8 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { Hero } from '../components/sections/Hero'
-import { About } from '../components/sections/About'
-import { Experience } from '../components/sections/Experience'
-import { Contact } from '../components/sections/Contact'
+import { Hero, About, Experience, Contact } from '@/components/sections'
+import { SEO } from '@/components/ui'
+import { SECTIONS } from '@/constants/navigation'
+import { PAGE_META } from '@/constants/seo'
 
 export const Route = createFileRoute('/')({
   component: HomePage,
@@ -11,10 +11,14 @@ export const Route = createFileRoute('/')({
 function HomePage() {
   return (
     <>
+      <SEO 
+        title={PAGE_META.home.title}
+        description={PAGE_META.home.description}
+      />
       <Hero />
-      <About id="om" />
-      <Experience id="erfaring" />
-      <Contact id="kontakt" />
+      <About id={SECTIONS.ABOUT} />
+      <Experience id={SECTIONS.EXPERIENCE} />
+      <Contact id={SECTIONS.CONTACT} />
     </>
   )
 }

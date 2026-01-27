@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Menu } from 'lucide-react';
 import { Link, useLocation } from '@tanstack/react-router';
+import { Icon } from '@/components/ui';
 import { MobileMenu } from './MobileMenu';
+import { NAV_LINKS, ROUTES } from '@/constants/navigation';
+import { headerAnimation, fadeIn } from '@/lib/animations';
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -16,17 +18,21 @@ export function Header() {
   return (
     <>
       <motion.header
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        variants={headerAnimation}
+        initial="hidden"
+        animate="visible"
         className="fixed top-0 left-0 right-0 z-50 bg-surface"
       >
-        <nav className="px-6 md:px-12 lg:px-16 py-4 flex items-center justify-between">
-          <Link to="/" className="text-lg font-bold text-primary uppercase">
+        <nav 
+          className="px-6 md:px-12 lg:px-16 py-4 flex items-center justify-between"
+          aria-label="Hovednavigasjon"
+        >
+          <Link to={ROUTES.HOME} className="text-lg font-bold text-primary uppercase">
             <motion.span
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              variants={fadeIn}
+              initial="hidden"
+              animate="visible"
+              transition={{ delay: 0.2 }}
             >
               Magnhild Myskja
             </motion.span>
@@ -34,51 +40,30 @@ export function Header() {
 
           {/* Desktop navigation */}
           <ul className="hidden lg:flex items-center gap-8">
-            <li>
-              <a 
-                href="/#om" 
-                className={`font-medium uppercase transition-colors ${
-                  isActive('/') 
-                    ? 'text-primary' 
-                    : 'text-secondary hover:text-primary'
-                }`}
-              >
-                Om meg
-              </a>
-            </li>
-            <li>
-              <a 
-                href="/#erfaring" 
-                className={`font-medium uppercase transition-colors ${
-                  isActive('/') 
-                    ? 'text-primary' 
-                    : 'text-secondary hover:text-primary'
-                }`}
-              >
-                Erfaring
-              </a>
-            </li>
-            <li>
-              <a 
-                href="/#kontakt" 
-                className={`font-medium uppercase transition-colors ${
-                  isActive('/') 
-                    ? 'text-primary' 
-                    : 'text-secondary hover:text-primary'
-                }`}
-              >
-                Kontakt
-              </a>
-            </li>
+            {NAV_LINKS.map((link) => (
+              <li key={link.href}>
+                <a 
+                  href={link.href}
+                  className={`font-medium uppercase transition-colors ${
+                    isActive(ROUTES.HOME) 
+                      ? 'text-primary' 
+                      : 'text-secondary hover:text-primary'
+                  }`}
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
           </ul>
 
           {/* Mobile menu button */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="lg:hidden text-primary hover:text-primary/80 transition-colors"
-            aria-label="Toggle menu"
+            aria-label="Åpne meny"
+            aria-expanded={menuOpen}
           >
-            <Menu size={24} />
+            <Icon name="menu" size={24} />
           </button>
         </nav>
       </motion.header>

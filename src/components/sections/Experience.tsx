@@ -1,6 +1,15 @@
 import { motion } from "framer-motion";
-import { experience } from "../../data/cv";
-import { FullscreenSection } from "../ui/FullscreenSection";
+import { Link } from "@tanstack/react-router";
+import { experience } from "@/data/cv";
+import { FullscreenSection, Icon } from "@/components/ui";
+import { ROUTES } from "@/constants/navigation";
+import { 
+  fadeInUpLarge, 
+  fadeInUp, 
+  slideInRight, 
+  viewportAlways, 
+  easeOut 
+} from "@/lib/animations";
 
 interface ExperienceProps {
   id?: string;
@@ -14,10 +23,10 @@ export function Experience({ id }: ExperienceProps) {
 
       {/* Title - bottom left */}
       <motion.h2
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, margin: "0px" }}
-        transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
+        variants={fadeInUpLarge}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewportAlways}
         className="text-5xl md:text-7xl lg:text-8xl font-bold text-primary tracking-tight"
       >
         ERFARING
@@ -29,22 +38,24 @@ export function Experience({ id }: ExperienceProps) {
     <div className="flex justify-start lg:justify-end w-full">
       <div className="flex flex-col gap-6">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, margin: "0px" }}
-          transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportAlways}
+          transition={{ delay: 0.2 }}
           className="space-y-3 text-left lg:text-right"
         >
           {experience.map((exp, index) => (
             <motion.div
               key={exp.company}
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: false, margin: "0px" }}
+              variants={slideInRight}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportAlways}
               transition={{
                 duration: 0.5,
                 delay: 0.3 + index * 0.08,
-                ease: [0.25, 0.1, 0.25, 1],
+                ease: easeOut,
               }}
             >
               <p className="text-lg md:text-xl text-secondary font-medium">
@@ -55,29 +66,21 @@ export function Experience({ id }: ExperienceProps) {
           ))}
         </motion.div>
 
-        <motion.a
-          href="/cv"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, margin: "0px" }}
-          transition={{ duration: 0.6, delay: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-          className="inline-flex items-center justify-start lg:justify-center gap-3 px-8 py-4 bg-primary text-white hover:bg-primary/90 transition-colors duration-300 font-bold text-base md:text-lg w-full"
+        <motion.div
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportAlways}
+          transition={{ delay: 0.6 }}
         >
-          Se full CV
-          <svg
-            className="w-5 h-5"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
+          <Link
+            to={ROUTES.CV}
+            className="inline-flex items-center justify-start lg:justify-center gap-3 px-8 py-4 bg-primary text-white hover:bg-primary/90 transition-colors duration-300 font-bold text-base md:text-lg w-full"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M17 8l4 4m0 0l-4 4m4-4H3"
-            />
-          </svg>
-        </motion.a>
+            Se full CV
+            <Icon name="arrow-right" className="w-5 h-5" />
+          </Link>
+        </motion.div>
       </div>
     </div>
   );

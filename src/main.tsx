@@ -1,6 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { RouterProvider, createRouter } from '@tanstack/react-router'
+import { HelmetProvider } from 'react-helmet-async'
 import './index.css'
 
 // Import the generated route tree
@@ -24,6 +25,8 @@ if (window.location.pathname !== '/' && window.location.search.startsWith('?p=')
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <HelmetProvider>
+      <RouterProvider router={router} />
+    </HelmetProvider>
   </StrictMode>,
 )
