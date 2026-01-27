@@ -46,10 +46,10 @@ function CVPage() {
                 <p className="text-sm text-secondary font-medium mb-1">
                   {exp.company}
                 </p>
-                <div className="flex items-center gap-3 mb-2">
-                  <p className="text-xs text-secondary/70">{exp.period}</p>
+                <div className="mb-2">
+                  <p className="text-xs text-secondary/70 mb-1">{exp.period}</p>
                   {exp.type && (
-                    <span className="text-xs font-bold uppercase tracking-wider px-2 py-0.5 border border-primary text-primary">
+                    <span className="inline-block text-xs font-bold uppercase tracking-wider px-2 py-0.5 border border-primary text-primary">
                       {exp.type}
                     </span>
                   )}
