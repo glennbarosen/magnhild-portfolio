@@ -8,7 +8,7 @@ interface MobileMenuProps {
 
 export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   const menuVariants = {
-    hidden: { opacity: 0, x: '-100%' },
+    hidden: { opacity: 0, x: '100%' },
     visible: { opacity: 1, x: 0 },
   };
 
@@ -35,7 +35,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         initial="hidden"
         animate={isOpen ? 'visible' : 'hidden'}
         transition={{ duration: 0.3 }}
-        className="fixed top-0 left-0 h-screen w-64 bg-surface z-50 lg:hidden flex flex-col"
+        className="fixed top-0 right-0 h-screen w-64 bg-surface z-50 lg:hidden flex flex-col"
       >
         {/* Close button */}
         <div className="flex justify-end p-6">

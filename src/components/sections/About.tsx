@@ -26,13 +26,13 @@ export function About({ id }: AboutProps) {
   );
 
   const rightContent = (
-    <div className="flex justify-center md:justify-end w-full">
+    <div className="flex justify-start lg:justify-end w-full">
       <motion.p
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, margin: "0px" }}
         transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-        className="text-lg md:text-xl lg:text-2xl text-secondary leading-relaxed max-w-md text-center md:text-right"
+        className="text-lg md:text-xl lg:text-2xl text-secondary leading-relaxed max-w-md text-left lg:text-right"
       >
         {aboutContent}
       </motion.p>
