@@ -11,15 +11,15 @@ export function FullscreenSection({ left, right, id, className = '' }: Fullscree
   return (
     <section
       id={id}
-      className={`section-full bg-surface flex flex-col md:grid md:grid-cols-2 gap-0 px-6 md:px-12 lg:px-16 md:h-screen pt-24 md:pt-0 ${className}`}
+      className={`section-full bg-surface flex flex-col lg:grid lg:grid-cols-2 gap-0 px-6 md:px-12 lg:px-16 lg:h-screen pt-24 lg:pt-0 ${className}`}
     >
       {/* Left column */}
-      <div className="flex flex-col justify-between h-auto md:h-full py-12 md:py-16 lg:py-20">
+      <div className="flex flex-col justify-between h-auto lg:h-full py-12 md:py-16 lg:py-20 items-start">
         {left}
       </div>
 
       {/* Right column */}
-      <div className="flex flex-col justify-end items-center md:items-end h-auto md:h-full py-12 md:py-16 lg:py-20">
+      <div className="flex flex-col justify-end items-start md:items-start lg:items-end h-auto lg:h-full py-12 md:py-16 lg:py-20">
         {right}
       </div>
     </section>

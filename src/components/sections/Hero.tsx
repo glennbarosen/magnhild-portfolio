@@ -69,7 +69,7 @@ export function Hero() {
   );
 
   const rightContent = (
-    <div className="flex flex-col justify-end items-center md:items-end h-full w-full">
+    <div className="flex flex-col justify-end items-start lg:items-end h-full w-full">
       {/* Profile image - full width on mobile, smaller on desktop */}
       <motion.img
         src={profileImage}
@@ -77,7 +77,7 @@ export function Hero() {
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
-        className="w-full md:max-w-[350px] object-cover"
+        className="w-full lg:max-w-[350px] object-cover"
       />
     </div>
   );

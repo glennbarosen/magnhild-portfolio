@@ -26,14 +26,14 @@ export function Experience({ id }: ExperienceProps) {
   );
 
   const rightContent = (
-    <div className="flex justify-center md:justify-end w-full">
+    <div className="flex justify-start lg:justify-end w-full">
       <div className="flex flex-col gap-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, margin: "0px" }}
           transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-          className="space-y-3 text-center md:text-right"
+          className="space-y-3 text-left lg:text-right"
         >
           {experience.map((exp, index) => (
             <motion.div
@@ -61,7 +61,7 @@ export function Experience({ id }: ExperienceProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, margin: "0px" }}
           transition={{ duration: 0.6, delay: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-          className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-primary text-white hover:bg-primary/90 transition-colors duration-300 font-bold text-base md:text-lg w-full"
+          className="inline-flex items-center justify-start lg:justify-center gap-3 px-8 py-4 bg-primary text-white hover:bg-primary/90 transition-colors duration-300 font-bold text-base md:text-lg w-full"
         >
           Se full CV
           <svg
