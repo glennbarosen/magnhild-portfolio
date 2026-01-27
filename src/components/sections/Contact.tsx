@@ -28,7 +28,7 @@ export function Contact({ id }: ContactProps) {
     <div className="flex justify-start lg:justify-end w-full">
       <div className="flex flex-col gap-4 w-full lg:w-auto min-w-[200px]">
         <motion.a
-          href="mailto:placeholder@email.com"
+          href="mailto:magnhild.lm@hotmail.com"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, margin: "0px" }}
@@ -41,7 +41,7 @@ export function Contact({ id }: ContactProps) {
           E-post
         </motion.a>
         <motion.a
-          href="https://linkedin.com/in/placeholder"
+          href="https://linkedin.com/in/mmyskja"
           target="_blank"
           rel="noopener noreferrer"
           initial={{ opacity: 0, y: 20 }}
