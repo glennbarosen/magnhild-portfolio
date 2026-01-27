@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { AnimatedSection } from '../components/ui/AnimatedSection'
+import { motion } from 'framer-motion'
 import { experience, education } from '../data/cv'
 
 export const Route = createFileRoute('/cv')({
@@ -8,64 +8,89 @@ export const Route = createFileRoute('/cv')({
 
 function CVPage() {
   return (
-    <div className="pt-24 pb-16 px-6">
-      <div className="max-w-3xl mx-auto">
-        <AnimatedSection>
-          <h1 className="text-4xl md:text-5xl font-bold text-primary mb-8 text-center">
-            CV
-          </h1>
-        </AnimatedSection>
+    <div className="bg-surface pt-24 pb-16 px-6 md:px-12 lg:px-16 min-h-screen">
+      {/* Title */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="mb-20"
+      >
+        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-primary tracking-tight">
+          CV
+        </h1>
+      </motion.div>
 
-        {/* Education */}
-        <AnimatedSection delay={0.1} className="mb-12">
-          <h2 className="text-2xl font-semibold text-primary mb-6">Utdanning</h2>
-          <div className="space-y-6">
-            {education.map((edu, index) => (
-              <AnimatedSection key={index} delay={0.15 + index * 0.1}>
-                <div className="border-l-2 border-accent pl-4">
-                  <h3 className="font-bold text-primary">{edu.degree}</h3>
-                  <p className="text-secondary">{edu.institution}</p>
-                  <p className="text-sm text-secondary/70">{edu.period}</p>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-        </AnimatedSection>
+      {/* Experience */}
+      <motion.section
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.1 }}
+        className="mb-24"
+      >
+        <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-primary mb-16 tracking-tight">
+          ARBEIDSERFARING
+        </h2>
+        <div className="space-y-12">
+          {experience.map((exp, index) => (
+            <motion.div
+              key={exp.company}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.15 + index * 0.08 }}
+            >
+              <div className="pb-12 border-b border-secondary/20">
+                <h3 className="text-2xl md:text-3xl font-bold text-primary mb-2">
+                  {exp.title}
+                </h3>
+                <p className="text-lg text-secondary font-medium mb-1">
+                  {exp.company}
+                </p>
+                {exp.type && (
+                  <p className="text-sm text-secondary uppercase tracking-wide mb-2">
+                    {exp.type}
+                  </p>
+                )}
+                <p className="text-sm text-secondary/70">{exp.period}</p>
+                {exp.description && (
+                  <p className="mt-4 text-secondary leading-relaxed">{exp.description}</p>
+                )}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </motion.section>
 
-        {/* Experience */}
-        <AnimatedSection delay={0.2} className="mb-12">
-          <h2 className="text-2xl font-semibold text-primary mb-6">Arbeidserfaring</h2>
-          <div className="space-y-6">
-            {experience.map((exp, index) => (
-              <AnimatedSection key={index} delay={0.25 + index * 0.1}>
-                <div className="border-l-2 border-accent pl-4">
-                  <div className="flex items-center justify-between">
-                    <h3 className="font-bold text-primary">{exp.title}</h3>
-                    {exp.type && <span className="text-xs bg-accent/10 text-accent px-2 py-1 rounded">{exp.type}</span>}
-                  </div>
-                  <p className="text-secondary">{exp.company}</p>
-                  <p className="text-sm text-secondary/70">{exp.period}</p>
-                  {exp.description && <p className="mt-2 text-secondary text-sm">{exp.description}</p>}
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-        </AnimatedSection>
-
-        {/* Download */}
-        <AnimatedSection delay={0.4} className="text-center">
-          <a
-            href="/assets/cv.pdf"
-            download
-            className="inline-flex items-center gap-2 px-10 py-5 bg-primary text-white hover:bg-primary/90 transition-colors font-bold text-base md:text-lg"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-            </svg>
-            Last ned CV (PDF)
-          </a>
-        </AnimatedSection>
-      </div>
+      {/* Education */}
+      <motion.section
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+      >
+        <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-primary mb-16 tracking-tight">
+          UTDANNING
+        </h2>
+        <div className="space-y-12">
+          {education.map((edu, index) => (
+            <motion.div
+              key={edu.institution}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.25 + index * 0.08 }}
+            >
+              <div className="pb-12 border-b border-secondary/20 last:border-b-0">
+                <h3 className="text-2xl md:text-3xl font-bold text-primary mb-2">
+                  {edu.degree}
+                </h3>
+                <p className="text-lg text-secondary font-medium mb-2">
+                  {edu.institution}
+                </p>
+                <p className="text-sm text-secondary/70">{edu.period}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </motion.section>
     </div>
   )
 }
