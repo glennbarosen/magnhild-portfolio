@@ -22,7 +22,7 @@ export interface Volunteer {
 export const experience: Experience[] = [
   {
     title: 'Kommunikasjonsrådgiver og innholdsprodusent',
-    company: 'Småkraft',
+    company: 'Småkraft AS',
     type: 'Deltid',
     period: 'nov. 2023 - Nå',
     description: 'Tekstproduksjon, historiefortelling og innholdsproduksjon, inkludert oppdatering av nettside med WordPress og utarbeidelse av årlig bærekraftsrapport.',
