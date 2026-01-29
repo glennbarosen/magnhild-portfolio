@@ -27,9 +27,9 @@ export function Experience({ id }: ExperienceProps) {
         initial="hidden"
         whileInView="visible"
         viewport={viewportAlways}
-        className="text-5xl md:text-7xl lg:text-8xl font-bold text-primary tracking-tight"
+        className="text-5xl md:text-7xl lg:text-8xl font-serif-title text-primary tracking-tight capitalize font-normal"
       >
-        ERFARING
+        Erfaring
       </motion.h2>
     </div>
   );
@@ -45,7 +45,7 @@ export function Experience({ id }: ExperienceProps) {
           transition={{ delay: 0.2 }}
           className="space-y-3 text-left lg:text-right"
         >
-          {experience.map((exp, index) => (
+          {experience.slice(0, 3).map((exp, index) => (
             <motion.div
               key={exp.company}
               variants={slideInRight}
@@ -59,7 +59,7 @@ export function Experience({ id }: ExperienceProps) {
               }}
             >
               <p className="text-lg md:text-xl font-medium">
-                {exp.company}
+                {exp.title}
               </p>
               <p className="text-sm">{exp.period}</p>
             </motion.div>
@@ -75,7 +75,7 @@ export function Experience({ id }: ExperienceProps) {
         >
           <Link
             to={ROUTES.CV}
-            className="inline-flex items-center justify-start lg:justify-center gap-3 px-8 py-4 bg-primary text-white hover:bg-primary/90 transition-colors duration-300 font-bold text-base md:text-lg w-full"
+            className="inline-flex items-center justify-start lg:justify-center gap-3 px-8 py-4 bg-primary text-white transition-colors duration-300 font-bold text-base md:text-lg w-full"
           >
             Se full CV
             <Icon name="arrow-right" className="w-5 h-5" />

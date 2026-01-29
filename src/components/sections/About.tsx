@@ -1,7 +1,7 @@
-import { motion } from 'framer-motion';
-import { FullscreenSection } from '@/components/ui';
-import { fadeInUpLarge, fadeInUp, viewportAlways } from '@/lib/animations';
-import { aboutContent } from '@/data/about';
+import { motion } from "framer-motion";
+import { FullscreenSection } from "@/components/ui";
+import { fadeInUpLarge, fadeInUp, viewportAlways } from "@/lib/animations";
+import { aboutContent } from "@/data/about";
 
 interface AboutProps {
   id?: string;
@@ -12,16 +12,16 @@ export function About({ id }: AboutProps) {
     <div className="flex flex-col justify-between h-full">
       {/* Spacer */}
       <div />
-      
+
       {/* Title - bottom left */}
       <motion.h2
         variants={fadeInUpLarge}
         initial="hidden"
         whileInView="visible"
         viewport={viewportAlways}
-        className="text-5xl md:text-7xl lg:text-8xl font-bold text-primary tracking-tight"
+        className="text-5xl md:text-7xl lg:text-8xl font-serif-title text-primary tracking-tight font-normal"
       >
-        OM MEG
+        Om meg
       </motion.h2>
     </div>
   );

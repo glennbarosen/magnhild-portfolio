@@ -30,7 +30,7 @@ export function Header() {
         >
           <Link
             to={ROUTES.HOME}
-            className="text-lg font-bold text-primary uppercase font-serif-title"
+            className="text-lg text-primary capitalize font-serif-title font-normal"
           >
             <motion.span
               variants={fadeIn}
@@ -48,7 +48,7 @@ export function Header() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className={`font-medium uppercase transition-colors ${
+                  className={`font-medium transition-colors ${
                     isActive(ROUTES.HOME)
                       ? "text-primary"
                       : "text-secondary hover:text-primary"

@@ -15,8 +15,8 @@ export function CVExperience({ experience }: CVExperienceProps) {
       transition={{ delay: 0.1 }}
       className="mb-12"
     >
-      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-8 tracking-tight">
-        ARBEIDSERFARING
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif-title text-primary mb-8 tracking-tight capitalize font-normal">
+        Arbeidserfaring
       </h2>
       <div className="space-y-6">
         {experience.map((exp, index) => (
@@ -28,12 +28,10 @@ export function CVExperience({ experience }: CVExperienceProps) {
             transition={{ duration: 0.5, delay: 0.15 + index * 0.08, ease: easeOut }}
           >
             <div className="border-l-4 border-primary pl-6 pb-6">
-              <h3 className="text-lg md:text-xl font-bold text-primary mb-1">
+              <h3 className="text-lg md:text-xl font-bold text-primary mb-1 font-sans">
                 {exp.title}
               </h3>
-              <p className="text-base font-medium mb-1">
-                {exp.company}
-              </p>
+              
               <div className="mb-2">
                 <p className="text-base text-black font-medium mb-1">{exp.period}</p>
                 {exp.type && (
@@ -43,7 +41,7 @@ export function CVExperience({ experience }: CVExperienceProps) {
                 )}
               </div>
               {exp.description && (
-                <p className="text-base text-black/80">{exp.description}</p>
+                <p className="text-base">{exp.description}</p>
               )}
             </div>
           </motion.div>

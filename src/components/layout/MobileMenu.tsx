@@ -105,7 +105,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 <a
                   key={link.href}
                   href={link.href}
-                  className="font-medium uppercase text-primary hover:text-primary/80 transition-colors text-lg"
+                  className="font-medium capitalize text-primary hover:text-primary/80 transition-colors text-lg"
                   onClick={onClose}
                 >
                   {link.label}

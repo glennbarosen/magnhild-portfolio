@@ -14,8 +14,8 @@ export function CVEducation({ education }: CVEducationProps) {
       animate="visible"
       transition={{ delay: 0.2 }}
     >
-      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-8 tracking-tight">
-        UTDANNING
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif-title text-primary mb-8 tracking-tight capitalize font-normal">
+        Utdanning
       </h2>
       <div className="space-y-6">
         {education.map((edu, index) => (
@@ -27,13 +27,13 @@ export function CVEducation({ education }: CVEducationProps) {
             transition={{ duration: 0.5, delay: 0.25 + index * 0.08, ease: easeOut }}
           >
             <div className="border-l-4 border-primary pl-6 pb-6">
-              <h3 className="text-lg md:text-xl font-bold text-primary mb-1">
+              <h3 className="text-lg md:text-xl font-bold text-primary mb-1 font-sans">
                 {edu.degree}
               </h3>
-              <p className="text-base text-black font-medium mb-1">
+              <p className="text-base font-medium mb-1">
                 {edu.institution}
               </p>
-              <p className="text-base text-black font-medium">{edu.period}</p>
+              <p className="text-base font-medium">{edu.period}</p>
             </div>
           </motion.div>
         ))}

@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+
 import type { ReactNode } from 'react';
 import { Link } from '@tanstack/react-router';
 
@@ -43,8 +43,8 @@ interface ButtonAsInternalLink extends ButtonBaseProps {
 type ButtonProps = ButtonAsButton | ButtonAsExternalLink | ButtonAsInternalLink;
 
 const variantStyles = {
-  primary: 'bg-primary text-white hover:bg-primary/90',
-  secondary: 'bg-transparent border border-primary text-primary hover:bg-primary hover:text-white',
+  primary: 'bg-primary text-white',
+  secondary: 'bg-transparent border border-primary text-primary',
 };
 
 const baseStyles = 'inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-colors duration-200';
@@ -56,11 +56,9 @@ export function Button(props: ButtonProps) {
   // Internal link using TanStack Router
   if (props.as === 'link' || ('to' in props && props.to)) {
     return (
-      <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-        <Link to={(props as ButtonAsInternalLink).to} className={combinedClassName}>
-          {children}
-        </Link>
-      </motion.div>
+      <Link to={(props as ButtonAsInternalLink).to} className={combinedClassName}>
+  {children}
+</Link>
     );
   }
 
@@ -68,30 +66,26 @@ export function Button(props: ButtonProps) {
   if (props.as === 'a' || ('href' in props && props.href)) {
     const { href, external } = props as ButtonAsExternalLink;
     return (
-      <motion.a
+      <a
         href={href}
         className={combinedClassName}
-        whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.98 }}
         {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
       >
         {children}
-      </motion.a>
+      </a>
     );
   }
 
   // Button element
   const { type = 'button', onClick, disabled } = props as ButtonAsButton;
   return (
-    <motion.button
+    <button
       type={type}
       onClick={onClick}
       disabled={disabled}
       className={`${combinedClassName} ${disabled ? 'opacity-50 cursor-not-allowed' : ''}`}
-      whileHover={disabled ? {} : { scale: 1.02 }}
-      whileTap={disabled ? {} : { scale: 0.98 }}
     >
       {children}
-    </motion.button>
+    </button>
   );
 }

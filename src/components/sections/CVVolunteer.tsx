@@ -14,8 +14,8 @@ export function CVVolunteer({ volunteer }: CVVolunteerProps) {
       animate="visible"
       transition={{ delay: 0.3 }}
     >
-      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-8 tracking-tight">
-        FRIVILLIG
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif-title text-primary mb-8 tracking-tight capitalize font-normal">
+        Frivillig
       </h2>
       <div className="space-y-6">
         {volunteer.map((vol, index) => (
@@ -27,13 +27,13 @@ export function CVVolunteer({ volunteer }: CVVolunteerProps) {
             transition={{ duration: 0.5, delay: 0.35 + index * 0.08, ease: easeOut }}
           >
             <div className="border-l-4 border-primary pl-6 pb-6">
-              <h3 className="text-lg md:text-xl font-bold text-primary mb-1">
+              <h3 className="text-lg md:text-xl font-bold text-primary mb-1 font-sans">
                 {vol.role}
               </h3>
-              <p className="text-base text-black font-medium mb-1">
+              <p className="text-base font-medium mb-1">
                 {vol.organization}
               </p>
-              <p className="text-base text-black font-medium">{vol.period}</p>
+              <p className="text-base font-medium">{vol.period}</p>
             </div>
           </motion.div>
         ))}
