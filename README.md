@@ -2,7 +2,7 @@
 
 Minimalist portfolio website for Magnhild Myskja, communication professional.
 
-> 🏖️ This app is entirely vibe-coded to explore Copilot CLI and Agent Skills.
+> 🏖️ This app is entirely vibe(ish)coded to explore Copilot CLI, Agent Skills and custom agents.
 
 ## Tech Stack
 
