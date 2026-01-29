@@ -58,10 +58,10 @@ export function Experience({ id }: ExperienceProps) {
                 ease: easeOut,
               }}
             >
-              <p className="text-lg md:text-xl text-secondary font-medium">
+              <p className="text-lg md:text-xl font-medium">
                 {exp.company}
               </p>
-              <p className="text-sm text-secondary/60">{exp.period}</p>
+              <p className="text-sm">{exp.period}</p>
             </motion.div>
           ))}
         </motion.div>

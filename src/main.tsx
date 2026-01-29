@@ -23,6 +23,11 @@ if (window.location.pathname !== '/' && window.location.search.startsWith('?p=')
   window.history.replaceState(null, '', path)
 }
 
+// Disable scroll restoration for snap bug on iOS
+if ('scrollRestoration' in window.history) {
+  window.history.scrollRestoration = 'manual';
+}
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <HelmetProvider>

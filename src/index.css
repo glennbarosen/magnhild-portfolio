@@ -1,13 +1,14 @@
 @import "tailwindcss";
 
+
 @theme {
   --color-primary: #1a1a1a;
   --color-secondary: #6b7280;
   --color-accent: #3b82f6;
-  --color-background: #fafafa;
-  --color-surface: #ffffff;
+  --color-surface: #f9f5f4;
   
-  --font-sans: "Inter", system-ui, sans-serif;
+  --font-sans: "neue-haas-grotesk-display", system-ui, sans-serif;
+  --font-serif: "orpheuspro", serif;
 }
 
 @layer base {
@@ -17,8 +18,27 @@
   }
   
   body {
-    @apply bg-background text-primary antialiased;
+    @apply bg-surface text-primary antialiased;
     font-family: var(--font-sans);
+    font-weight: 200;
+    font-style: normal;
+  }
+
+  h1, h2, h3, h4, h5, h6, .font-serif-title {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  .font-sans-light {
+    font-family: var(--font-sans);
+    font-weight: 200;
+    font-style: normal;
+  }
+  .font-sans-extralight {
+    font-family: var(--font-sans);
+    font-weight: 300;
+    font-style: normal;
   }
 }
 

@@ -10,9 +10,14 @@ export const Route = createFileRoute('/cv')({
   component: CVPage,
 })
 
+import { useEffect } from 'react';
+
 function CVPage() {
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, []);
   return (
-    <div className="bg-surface pt-24 pb-16 px-6 md:px-12 lg:px-16 min-h-screen">
+    <div className="pt-24 pb-16 px-6 md:px-12 lg:px-16 min-h-screen">
       <SEO 
         title={PAGE_META.cv.title}
         description={PAGE_META.cv.description}

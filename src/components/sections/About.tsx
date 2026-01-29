@@ -34,7 +34,7 @@ export function About({ id }: AboutProps) {
         whileInView="visible"
         viewport={viewportAlways}
         transition={{ delay: 0.2 }}
-        className="text-lg md:text-xl text-secondary/80 max-w-md text-left lg:text-right leading-relaxed"
+        className="text-lg md:text-xl max-w-md text-left lg:text-right leading-relaxed font-sans-extralight"
       >
         {aboutContent}
       </motion.p>

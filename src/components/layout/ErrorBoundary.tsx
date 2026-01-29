@@ -31,7 +31,7 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
       }
 
       return (
-        <div className="min-h-screen flex items-center justify-center bg-background px-6">
+        <div className="min-h-screen flex items-center justify-center px-6">
           <div className="text-center max-w-md">
             <h1 className="text-4xl font-bold text-primary mb-4">
               Noe gikk galt

@@ -31,11 +31,11 @@ export function CVExperience({ experience }: CVExperienceProps) {
               <h3 className="text-lg md:text-xl font-bold text-primary mb-1">
                 {exp.title}
               </h3>
-              <p className="text-sm text-secondary font-medium mb-1">
+              <p className="text-base font-medium mb-1">
                 {exp.company}
               </p>
               <div className="mb-2">
-                <p className="text-xs text-secondary/70 mb-1">{exp.period}</p>
+                <p className="text-base text-black font-medium mb-1">{exp.period}</p>
                 {exp.type && (
                   <span className="inline-block text-xs font-bold uppercase tracking-wider px-2 py-0.5 border border-primary text-primary">
                     {exp.type}
@@ -43,7 +43,7 @@ export function CVExperience({ experience }: CVExperienceProps) {
                 )}
               </div>
               {exp.description && (
-                <p className="text-xs text-secondary">{exp.description}</p>
+                <p className="text-base text-black/80">{exp.description}</p>
               )}
             </div>
           </motion.div>

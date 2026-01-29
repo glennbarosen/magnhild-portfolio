@@ -30,10 +30,10 @@ export function CVVolunteer({ volunteer }: CVVolunteerProps) {
               <h3 className="text-lg md:text-xl font-bold text-primary mb-1">
                 {vol.role}
               </h3>
-              <p className="text-sm text-secondary font-medium mb-1">
+              <p className="text-base text-black font-medium mb-1">
                 {vol.organization}
               </p>
-              <p className="text-xs text-secondary/70">{vol.period}</p>
+              <p className="text-base text-black font-medium">{vol.period}</p>
             </div>
           </motion.div>
         ))}

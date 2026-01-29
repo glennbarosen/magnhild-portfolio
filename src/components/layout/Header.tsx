@@ -1,10 +1,11 @@
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Link, useLocation } from '@tanstack/react-router';
-import { Icon } from '@/components/ui';
-import { MobileMenu } from './MobileMenu';
-import { NAV_LINKS, ROUTES } from '@/constants/navigation';
-import { headerAnimation, fadeIn } from '@/lib/animations';
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { Link, useLocation } from "@tanstack/react-router";
+import { Icon } from "@/components/ui";
+
+import { MobileMenu } from "./MobileMenu";
+import { NAV_LINKS, ROUTES } from "@/constants/navigation";
+import { headerAnimation, fadeIn } from "@/lib/animations";
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -21,13 +22,16 @@ export function Header() {
         variants={headerAnimation}
         initial="hidden"
         animate="visible"
-        className="fixed top-0 left-0 right-0 z-50 bg-surface"
+        className="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm bg-surface/80"
       >
-        <nav 
-          className="px-6 md:px-12 lg:px-16 py-4 flex items-center justify-between"
+        <nav
+          className="px-6 md:px-12 lg:px-16 py-4 flex items-center justify-between gap-4"
           aria-label="Hovednavigasjon"
         >
-          <Link to={ROUTES.HOME} className="text-lg font-bold text-primary uppercase">
+          <Link
+            to={ROUTES.HOME}
+            className="text-lg font-bold text-primary uppercase font-serif-title"
+          >
             <motion.span
               variants={fadeIn}
               initial="hidden"
@@ -42,12 +46,12 @@ export function Header() {
           <ul className="hidden lg:flex items-center gap-8">
             {NAV_LINKS.map((link) => (
               <li key={link.href}>
-                <a 
+                <a
                   href={link.href}
                   className={`font-medium uppercase transition-colors ${
-                    isActive(ROUTES.HOME) 
-                      ? 'text-primary' 
-                      : 'text-secondary hover:text-primary'
+                    isActive(ROUTES.HOME)
+                      ? "text-primary"
+                      : "text-secondary hover:text-primary"
                   }`}
                 >
                   {link.label}
