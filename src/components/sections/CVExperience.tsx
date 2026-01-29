@@ -31,6 +31,7 @@ export function CVExperience({ experience }: CVExperienceProps) {
               <h3 className="text-lg md:text-xl font-bold text-primary mb-1 font-sans">
                 {exp.title}
               </h3>
+              <p className="text-base font-medium mb-1">{exp.company}</p>
               
               <div className="mb-2">
                 <p className="text-base text-black font-medium mb-1">{exp.period}</p>
@@ -41,7 +42,7 @@ export function CVExperience({ experience }: CVExperienceProps) {
                 )}
               </div>
               {exp.description && (
-                <p className="text-base">{exp.description}</p>
+                <p className="text-base font-medium">{exp.description}</p>
               )}
             </div>
           </motion.div>

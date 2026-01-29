@@ -51,7 +51,7 @@ export function Header() {
                   className={`font-medium transition-colors ${
                     isActive(ROUTES.HOME)
                       ? "text-primary"
-                      : "text-secondary hover:text-primary"
+                      : "text-primary"
                   }`}
                 >
                   {link.label}

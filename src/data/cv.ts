@@ -25,33 +25,33 @@ export const experience: Experience[] = [
     company: 'Småkraft',
     type: 'Deltid',
     period: 'nov. 2023 - Nå',
-    description: 'Tekstproduksjon, historiefortelling og innholdsproduksjon. Oppdatering av nettside ved bruk av WordPress. Utarbeidelse av årlig bærekraftsrapport.',
+    description: 'Tekstproduksjon, historiefortelling og innholdsproduksjon, inkludert oppdatering av nettside med WordPress og utarbeidelse av årlig bærekraftsrapport.',
   },
   {
     title: 'Kommunikasjonsmedarbeider praktikant',
     company: 'Miljøstiftelsen ZERO',
     period: 'okt. 2024 - des. 2024',
-    description: 'Deltok i kommunikasjonsteamets daglige arbeidsoppgaver. Innholdsproduksjon til nettside, LinkedIn og Instagram.',
+    description: 'Deltok i kommunikasjonsteamets daglige arbeidsoppgaver, med innholdsproduksjon til nettside, LinkedIn og Instagram.',
   },
   {
     title: 'Vitenskapelig assistent',
     company: 'Kristiania',
     type: 'Prosjektbasert',
     period: 'okt. 2023 - apr. 2024',
-    description: 'Vitenskapelig assistent på ulike forskningsprosjekt ved Institutt for kommunikasjon. Transkribering av dybdeintervju. Koding av kvantitative data.',
+    description: 'Arbeidet som vitenskapelig assistent på ulike forskningsprosjekter ved Institutt for kommunikasjon, inkludert transkribering av dybdeintervju og koding av kvantitative data.',
   },
   {
     title: 'Idrettspedagog',
     company: 'Læringsverkstedet Myrvoll idrettsbarnehage',
     type: 'Heltid',
     period: 'aug. 2021 - jan. 2023',
-    description: 'Ansvarlig for planlegging og utføring av idrettspedagogiske planer. Teamarbeid. Pedagogisk kommunikasjon.',
+    description: 'Planlegging og utføring av idrettspedagogiske planer, teamarbeid og pedagogisk kommunikasjon.',
   },
   {
     title: 'Administrasjonsmedarbeider praktikant',
     company: 'Norges Volleyballforbund',
     period: 'okt. 2018',
-    description: 'Deltok i administrasjonens daglige arbeid, blant annet knyttet til kommunikasjon og markedsføring.',
+    description: 'Deltok i administrasjonens daglige arbeid, spesielt innen kommunikasjon og markedsføring.',
   },
 ];
 
