@@ -1,53 +1,53 @@
-import { motion } from 'framer-motion';
-import { FullscreenSection, Icon } from '@/components/ui';
-import { SOCIAL_LINKS } from '@/constants/navigation';
-import { fadeInUpLarge, viewportAlways } from '@/lib/animations';
+import { motion } from 'framer-motion'
+import { FullscreenSection, Icon } from '@/components/ui'
+import { SOCIAL_LINKS } from '@/constants/navigation'
+import { fadeInUpLarge, viewportAlways } from '@/lib/animations'
 
 interface ContactProps {
-  id?: string;
+    id?: string
 }
 
 export function Contact({ id }: ContactProps) {
-  const leftContent = (
-    <div className="flex flex-col justify-between h-full">
-      {/* Spacer */}
-      <div />
-      
-      {/* Title - bottom left */}
-      <motion.h2
-        variants={fadeInUpLarge}
-        initial="hidden"
-        whileInView="visible"
-        viewport={viewportAlways}
-        className="text-5xl md:text-7xl lg:text-8xl font-serif-title text-primary tracking-tight font-normal"
-      >
-        Kontakt
-      </motion.h2>
-    </div>
-  );
+    const leftContent = (
+        <div className="flex h-full flex-col justify-between">
+            {/* Spacer */}
+            <div />
 
-  const rightContent = (
-    <div className="flex justify-start lg:justify-end w-full">
-      <div className="flex flex-col gap-4 w-full lg:w-auto min-w-[200px]">
-        <a
-          href={`mailto:${SOCIAL_LINKS.EMAIL}`}
-          className="inline-flex items-center justify-start lg:justify-center gap-3 px-8 py-4 bg-primary text-white hover:bg-primary/90 transition-colors duration-300 font-bold text-base md:text-lg w-full"
-        >
-          <Icon name="mail" className="w-5 h-5" />
-          E-post
-        </a>
-        <a
-          href={SOCIAL_LINKS.LINKEDIN}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center justify-start lg:justify-center gap-3 px-8 py-4 bg-primary text-white hover:bg-primary/90 transition-colors duration-300 font-bold text-base md:text-lg w-full"
-        >
-          <Icon name="linkedin" className="w-5 h-5" />
-          LinkedIn
-        </a>
-      </div>
-    </div>
-  );
+            {/* Title - bottom left */}
+            <motion.h2
+                variants={fadeInUpLarge}
+                initial="hidden"
+                whileInView="visible"
+                viewport={viewportAlways}
+                className="font-serif-title text-primary text-5xl font-normal tracking-tight md:text-7xl lg:text-8xl"
+            >
+                Kontakt
+            </motion.h2>
+        </div>
+    )
 
-  return <FullscreenSection id={id} left={leftContent} right={rightContent} />;
+    const rightContent = (
+        <div className="flex w-full justify-start lg:justify-end">
+            <div className="flex w-full min-w-[200px] flex-col gap-4 lg:w-auto">
+                <a
+                    href={`mailto:${SOCIAL_LINKS.EMAIL}`}
+                    className="bg-primary hover:bg-primary/90 inline-flex w-full items-center justify-start gap-3 px-8 py-4 text-base font-bold text-white transition-colors duration-300 md:text-lg lg:justify-center"
+                >
+                    <Icon name="mail" className="h-5 w-5" />
+                    E-post
+                </a>
+                <a
+                    href={SOCIAL_LINKS.LINKEDIN}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-primary hover:bg-primary/90 inline-flex w-full items-center justify-start gap-3 px-8 py-4 text-base font-bold text-white transition-colors duration-300 md:text-lg lg:justify-center"
+                >
+                    <Icon name="linkedin" className="h-5 w-5" />
+                    LinkedIn
+                </a>
+            </div>
+        </div>
+    )
+
+    return <FullscreenSection id={id} left={leftContent} right={rightContent} />
 }

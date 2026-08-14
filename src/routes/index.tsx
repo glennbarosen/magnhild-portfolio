@@ -5,20 +5,17 @@ import { SECTIONS } from '@/constants/navigation'
 import { PAGE_META } from '@/constants/seo'
 
 export const Route = createFileRoute('/')({
-  component: HomePage,
+    component: HomePage,
 })
 
 function HomePage() {
-  return (
-    <>
-      <SEO 
-        title={PAGE_META.home.title}
-        description={PAGE_META.home.description}
-      />
-      <Hero />
-      <About id={SECTIONS.ABOUT} />
-      <Experience id={SECTIONS.EXPERIENCE} />
-      <Contact id={SECTIONS.CONTACT} />
-    </>
-  )
+    return (
+        <>
+            <SEO title={PAGE_META.home.title} description={PAGE_META.home.description} />
+            <Hero />
+            <About id={SECTIONS.ABOUT} />
+            <Experience id={SECTIONS.EXPERIENCE} />
+            <Contact id={SECTIONS.CONTACT} />
+        </>
+    )
 }

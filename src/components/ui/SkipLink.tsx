@@ -1,18 +1,15 @@
 interface SkipLinkProps {
-  targetId?: string;
-  children?: string;
+    targetId?: string
+    children?: string
 }
 
-export function SkipLink({ 
-  targetId = 'main-content', 
-  children = 'Hopp til hovedinnhold' 
-}: SkipLinkProps) {
-  return (
-    <a
-      href={`#${targetId}`}
-      className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-primary focus:text-white focus:outline-none"
-    >
-      {children}
-    </a>
-  );
+export function SkipLink({ targetId = 'main-content', children = 'Hopp til hovedinnhold' }: SkipLinkProps) {
+    return (
+        <a
+            href={`#${targetId}`}
+            className="focus:bg-primary sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:text-white focus:outline-none"
+        >
+            {children}
+        </a>
+    )
 }
