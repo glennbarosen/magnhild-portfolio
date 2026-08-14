@@ -5,17 +5,15 @@ import { CVExperience, CVEducation, CVVolunteer } from '@/components/sections'
 import { SEO } from '@/components/ui'
 import { fadeInUp } from '@/lib/animations'
 import { PAGE_META, SITE_CONFIG } from '@/constants/seo'
+import { useScrollToTop } from '@/hooks/useScrollToTop'
 
 export const Route = createFileRoute('/cv')({
     component: CVPage,
 })
 
-import { useEffect } from 'react'
-
 function CVPage() {
-    useEffect(() => {
-        window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
-    }, [])
+    useScrollToTop()
+
     return (
         <div className="min-h-screen px-6 pt-24 pb-16 md:px-12 lg:px-16">
             <SEO
@@ -27,7 +25,7 @@ function CVPage() {
             {/* Title */}
             <motion.div variants={fadeInUp} initial="hidden" animate="visible" className="mb-12">
                 <h1 className="text-primary text-5xl font-bold tracking-tight capitalize md:text-7xl lg:text-8xl">
-                    CV
+                    CV<span className="sr-only"> — Magnhild Myskja, kommunikasjonsrådgiver</span>
                 </h1>
             </motion.div>
 

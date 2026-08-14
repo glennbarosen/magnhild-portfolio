@@ -15,7 +15,8 @@ interface IconProps extends LucideProps {
     name: IconName
 }
 
-export function Icon({ name, ...props }: IconProps) {
+export function Icon({ name, 'aria-hidden': ariaHidden = true, ...props }: IconProps) {
     const IconComponent = iconMap[name]
-    return <IconComponent {...props} />
+    if (!IconComponent) return null
+    return <IconComponent aria-hidden={ariaHidden} {...props} />
 }

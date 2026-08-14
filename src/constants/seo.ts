@@ -1,3 +1,5 @@
+import { SOCIAL_LINKS } from './navigation'
+
 export const SITE_CONFIG = {
     name: 'Magnhild Myskja',
     title: 'Magnhild Myskja | Kommunikasjonsrådgiver',
@@ -5,6 +7,11 @@ export const SITE_CONFIG = {
         'Kommunikasjonsrådgiver og innholdsprodusent basert i Norge. Spesialisert på strategisk kommunikasjon og digitale medier.',
     url: 'https://magnhildmyskja.no',
     locale: 'nb_NO',
+    ogImage: 'https://magnhildmyskja.no/og-image.jpg',
+    ogImageWidth: 1200,
+    ogImageHeight: 630,
+    linkedin: SOCIAL_LINKS.LINKEDIN,
+    email: SOCIAL_LINKS.EMAIL,
 } as const
 
 export const PAGE_META = {

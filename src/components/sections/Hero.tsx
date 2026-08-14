@@ -1,5 +1,4 @@
 import { FullscreenSection } from '@/components/ui'
-import profileImage from '@/assets/mlm-profile.jpeg'
 
 export function Hero() {
     return (
@@ -18,11 +17,13 @@ export function Hero() {
             right={
                 <div className="flex h-full w-full flex-col items-start justify-end lg:items-end">
                     <img
-                        src={profileImage}
+                        src="/mlm-profile.jpg"
                         alt="Magnhild Lundebrekke Myskja"
+                        width={800}
+                        height={800}
                         className="w-full object-cover lg:max-w-[350px]"
                         fetchPriority="high"
-                        decoding="async"
+                        decoding="sync"
                     />
                 </div>
             }

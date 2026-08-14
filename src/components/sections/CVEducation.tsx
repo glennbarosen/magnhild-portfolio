@@ -24,7 +24,8 @@ export function CVEducation({ education }: CVEducationProps) {
                         <div className="border-primary border-l-4 pb-6 pl-6">
                             <h3 className="text-primary mb-1 font-sans text-lg font-bold md:text-xl">{edu.degree}</h3>
                             <p className="mb-1 text-base font-medium">{edu.institution}</p>
-                            <p className="text-base font-medium">{edu.period}</p>
+                            <p className="mb-1 text-base font-medium">{edu.period}</p>
+                            {edu.details && <p className="text-secondary text-base">{edu.details}</p>}
                         </div>
                     </motion.div>
                 ))}

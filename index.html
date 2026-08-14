@@ -1,14 +1,48 @@
 <!doctype html>
 <html lang="nb">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Magnhild Myskja | Kommunikasjonsrådgiver</title>
-    <link rel="stylesheet" href="https://use.typekit.net/fzn0esu.css" />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Magnhild Myskja | Kommunikasjonsrådgiver</title>
+
+        <meta
+            name="description"
+            content="Kommunikasjonsrådgiver og innholdsprodusent basert i Norge. Spesialisert på strategisk kommunikasjon og digitale medier."
+        />
+        <link rel="canonical" href="https://magnhildmyskja.no/" />
+        <meta name="theme-color" content="#f9f5f4" />
+
+        <!-- Open Graph / Twitter — static baseline for non-JS scrapers (LinkedIn, Slack, iMessage, …).
+         SEO.tsx overrides these per-route for users and JS-executing crawlers. -->
+        <meta property="og:type" content="profile" />
+        <meta property="og:site_name" content="Magnhild Myskja" />
+        <meta property="og:locale" content="nb_NO" />
+        <meta property="og:title" content="Magnhild Myskja | Kommunikasjonsrådgiver" />
+        <meta
+            property="og:description"
+            content="Kommunikasjonsrådgiver og innholdsprodusent basert i Norge. Spesialisert på strategisk kommunikasjon og digitale medier."
+        />
+        <meta property="og:url" content="https://magnhildmyskja.no/" />
+        <meta property="og:image" content="https://magnhildmyskja.no/og-image.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Magnhild Lundebrekke Myskja" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://magnhildmyskja.no/og-image.jpg" />
+
+        <link rel="icon" href="/favicon.ico" sizes="32x32" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+
+        <link rel="preconnect" href="https://use.typekit.net" crossorigin />
+        <link rel="preconnect" href="https://p.typekit.net" crossorigin />
+        <link rel="stylesheet" href="https://use.typekit.net/fzn0esu.css" />
+
+        <link rel="preload" as="image" href="/mlm-profile.jpg" fetchpriority="high" />
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="module" src="/src/main.tsx"></script>
+    </body>
 </html>
