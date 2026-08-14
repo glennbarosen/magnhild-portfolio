@@ -12,26 +12,26 @@ const router = createRouter({ routeTree })
 
 // Register the router instance for type safety
 declare module '@tanstack/react-router' {
-  interface Register {
-    router: typeof router
-  }
+    interface Register {
+        router: typeof router
+    }
 }
 
 // Handle GitHub Pages SPA redirect
 if (window.location.pathname !== '/' && window.location.search.startsWith('?p=')) {
-  const path = window.location.search.slice(3).replace(/~and~/g, '&')
-  window.history.replaceState(null, '', path)
+    const path = window.location.search.slice(3).replace(/~and~/g, '&')
+    window.history.replaceState(null, '', path)
 }
 
 // Disable scroll restoration for snap bug on iOS
 if ('scrollRestoration' in window.history) {
-  window.history.scrollRestoration = 'manual';
+    window.history.scrollRestoration = 'manual'
 }
 
 createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <HelmetProvider>
-      <RouterProvider router={router} />
-    </HelmetProvider>
-  </StrictMode>,
+    <StrictMode>
+        <HelmetProvider>
+            <RouterProvider router={router} />
+        </HelmetProvider>
+    </StrictMode>
 )

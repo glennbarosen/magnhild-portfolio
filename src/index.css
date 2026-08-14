@@ -1,54 +1,59 @@
-@import "tailwindcss";
-
+@import 'tailwindcss';
 
 @theme {
-  --color-primary: #1a1a1a;
-  --color-secondary: #6b7280;
-  --color-accent: #3b82f6;
-  --color-surface: #f9f5f4;
-  
-  --font-sans: "neue-haas-grotesk-display", system-ui, sans-serif;
-  --font-serif: "kepler-std", serif;
+    --color-primary: #1a1a1a;
+    --color-secondary: #6b7280;
+    --color-accent: #3b82f6;
+    --color-surface: #f9f5f4;
+
+    --font-sans: 'neue-haas-grotesk-display', system-ui, sans-serif;
+    --font-serif: 'kepler-std', serif;
 }
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
-    scroll-snap-type: y mandatory;
-  }
-  
-  body {
-    @apply bg-surface text-primary antialiased;
-    font-family: var(--font-sans);
-    font-weight: 200;
-    font-style: normal;
-  }
+    html {
+        scroll-behavior: smooth;
+        scroll-snap-type: y mandatory;
+    }
 
-  h1, h2, h3, h4, h5, h6, .font-serif-title {
-    font-family: var(--font-serif);
-    font-weight: 100;
-    font-style: normal;
-  }
+    body {
+        @apply bg-surface text-primary antialiased;
+        font-family: var(--font-sans);
+        font-weight: 200;
+        font-style: normal;
+    }
 
-  .font-sans-light {
-    font-family: var(--font-sans);
-    font-weight: 200;
-    font-style: normal;
-  }
-  .font-sans-extralight {
-    font-family: var(--font-sans);
-    font-weight: 300;
-    font-style: normal;
-  }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .font-serif-title {
+        font-family: var(--font-serif);
+        font-weight: 100;
+        font-style: normal;
+    }
+
+    .font-sans-light {
+        font-family: var(--font-sans);
+        font-weight: 200;
+        font-style: normal;
+    }
+    .font-sans-extralight {
+        font-family: var(--font-sans);
+        font-weight: 300;
+        font-style: normal;
+    }
 }
 
 @layer components {
-  .section-full {
-    min-height: 100dvh;
-    width: 100%;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    scroll-snap-align: start;
-  }
+    .section-full {
+        min-height: 100dvh;
+        width: 100%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        scroll-snap-align: start;
+    }
 }
