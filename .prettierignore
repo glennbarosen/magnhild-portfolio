@@ -2,6 +2,9 @@
 node_modules
 pnpm-lock.yaml
 
+# Claude Code project config — not app code
+.claude
+
 # Build directories
 dist
 build

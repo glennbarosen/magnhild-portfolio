@@ -1,59 +1,67 @@
 name: Deploy to GitHub Pages
 
 on:
-  push:
-    branches: [main]
-  workflow_dispatch:
+    push:
+        branches: [main]
+    workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+    contents: read
+    pages: write
+    id-token: write
 
 concurrency:
-  group: pages
-  cancel-in-progress: false
+    group: pages
+    cancel-in-progress: false
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
 
-      # No version here: corepack picks up the packageManager pin in package.json.
-      - name: Enable corepack
-        run: corepack enable
+            # No version here: corepack picks up the packageManager pin in package.json.
+            - name: Enable corepack
+              run: corepack enable
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version-file: .node-version
-          cache: pnpm
+            - name: Setup Node
+              uses: actions/setup-node@v4
+              with:
+                  node-version-file: .node-version
+                  cache: pnpm
 
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+            - name: Install dependencies
+              run: pnpm install --frozen-lockfile
 
-      # pnpm build, not `vite build` — the package script runs `tsc -b` first,
-      # so a type error fails the deploy instead of shipping.
-      - name: Build
-        run: pnpm build
+            # push-triggered runs are already gated by CI on the merged PR, but
+            # workflow_dispatch can publish from any branch/state — so verify here too.
+            - name: Lint
+              run: pnpm lint
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
+            - name: Test
+              run: pnpm test:run
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./dist
+            # pnpm build, not `vite build` — the package script runs `tsc -b` first,
+            # so a type error fails the deploy instead of shipping.
+            - name: Build
+              run: pnpm build
 
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+            - name: Setup Pages
+              uses: actions/configure-pages@v4
+
+            - name: Upload artifact
+              uses: actions/upload-pages-artifact@v3
+              with:
+                  path: ./dist
+
+    deploy:
+        environment:
+            name: github-pages
+            url: ${{ steps.deployment.outputs.page_url }}
+        runs-on: ubuntu-latest
+        needs: build
+        steps:
+            - name: Deploy to GitHub Pages
+              id: deployment
+              uses: actions/deploy-pages@v4

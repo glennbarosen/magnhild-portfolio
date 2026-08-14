@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Link, useLocation } from '@tanstack/react-router'
 import { Icon } from '@/components/ui'
@@ -7,13 +7,30 @@ import { MobileMenu } from './MobileMenu'
 import { NAV_LINKS, ROUTES } from '@/constants/navigation'
 import { headerAnimation, fadeIn } from '@/lib/animations'
 
+const DESKTOP_BREAKPOINT = '(min-width: 1024px)'
+
 export function Header() {
     const [menuOpen, setMenuOpen] = useState(false)
     const location = useLocation()
-    const currentPath = location.pathname
+    const currentHash = location.hash
 
-    const isActive = (path: string) => {
-        return currentPath === path
+    const closeMenu = useCallback(() => setMenuOpen(false), [])
+
+    // The menu panel and its trigger are lg:hidden — if the viewport crosses
+    // the breakpoint while open (resize, tablet rotation), close it so the
+    // body-scroll lock can't outlive the now-unmounted panel.
+    useEffect(() => {
+        const mq = window.matchMedia(DESKTOP_BREAKPOINT)
+        const handleChange = (e: MediaQueryListEvent) => {
+            if (e.matches) closeMenu()
+        }
+        mq.addEventListener('change', handleChange)
+        return () => mq.removeEventListener('change', handleChange)
+    }, [closeMenu])
+
+    const isActive = (href: string) => {
+        const [, hash] = href.split('#')
+        return currentHash === hash
     }
 
     return (
@@ -38,32 +55,35 @@ export function Header() {
                     <ul className="hidden items-center gap-8 lg:flex">
                         {NAV_LINKS.map((link) => (
                             <li key={link.href}>
-                                <a
-                                    href={link.href}
+                                <Link
+                                    to={ROUTES.HOME}
+                                    hash={link.href.split('#')[1]}
                                     className={`font-medium transition-colors ${
-                                        isActive(ROUTES.HOME) ? 'text-primary' : 'text-primary'
+                                        isActive(link.href) ? 'text-accent' : 'text-primary'
                                     }`}
+                                    aria-current={isActive(link.href) ? 'true' : undefined}
                                 >
                                     {link.label}
-                                </a>
+                                </Link>
                             </li>
                         ))}
                     </ul>
 
                     {/* Mobile menu button */}
                     <button
-                        onClick={() => setMenuOpen(!menuOpen)}
+                        onClick={() => setMenuOpen((open) => !open)}
                         className="text-primary hover:text-primary/80 transition-colors lg:hidden"
-                        aria-label="Åpne meny"
+                        aria-label={menuOpen ? 'Lukk meny' : 'Åpne meny'}
                         aria-expanded={menuOpen}
+                        aria-controls="mobile-nav-dialog"
                     >
-                        <Icon name="menu" size={24} />
+                        <Icon name={menuOpen ? 'x' : 'menu'} size={24} />
                     </button>
                 </nav>
             </motion.header>
 
             {/* Mobile menu */}
-            <MobileMenu isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
+            <MobileMenu isOpen={menuOpen} onClose={closeMenu} />
         </>
     )
 }

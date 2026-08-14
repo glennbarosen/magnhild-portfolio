@@ -1,7 +1,8 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useEffect, useRef } from 'react'
+import { Link } from '@tanstack/react-router'
 import { Icon } from '@/components/ui'
-import { NAV_LINKS } from '@/constants/navigation'
+import { NAV_LINKS, ROUTES } from '@/constants/navigation'
 import { slideInFromRight, backdropAnimation, quickTransition } from '@/lib/animations'
 
 interface MobileMenuProps {
@@ -12,12 +13,13 @@ interface MobileMenuProps {
 export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
     const menuRef = useRef<HTMLDivElement>(null)
     const closeButtonRef = useRef<HTMLButtonElement>(null)
+    const previouslyFocusedRef = useRef<HTMLElement | null>(null)
 
-    // Focus trap and escape key handling
+    // Focus trap, escape key, and returning focus to the trigger on close
     useEffect(() => {
         if (!isOpen) return
 
-        // Focus the close button when menu opens
+        previouslyFocusedRef.current = document.activeElement as HTMLElement | null
         closeButtonRef.current?.focus()
 
         const handleKeyDown = (e: KeyboardEvent) => {
@@ -44,7 +46,10 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         }
 
         document.addEventListener('keydown', handleKeyDown)
-        return () => document.removeEventListener('keydown', handleKeyDown)
+        return () => {
+            document.removeEventListener('keydown', handleKeyDown)
+            previouslyFocusedRef.current?.focus()
+        }
     }, [isOpen, onClose])
 
     // Prevent body scroll when menu is open
@@ -76,10 +81,11 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
 
                     {/* Menu */}
                     <motion.div
+                        id="mobile-nav-dialog"
                         ref={menuRef}
                         role="dialog"
                         aria-modal="true"
-                        aria-label="Navigasjonsmeny"
+                        aria-label="Mobilmeny"
                         variants={slideInFromRight}
                         initial="hidden"
                         animate="visible"
@@ -100,17 +106,21 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                         </div>
 
                         {/* Menu items */}
-                        <nav className="flex flex-col gap-8 px-6" aria-label="Hovednavigasjon">
-                            {NAV_LINKS.map((link) => (
-                                <a
-                                    key={link.href}
-                                    href={link.href}
-                                    className="text-primary hover:text-primary/80 text-lg font-medium capitalize transition-colors"
-                                    onClick={onClose}
-                                >
-                                    {link.label}
-                                </a>
-                            ))}
+                        <nav aria-label="Mobilnavigasjon">
+                            <ul className="flex flex-col gap-8 px-6">
+                                {NAV_LINKS.map((link) => (
+                                    <li key={link.href}>
+                                        <Link
+                                            to={ROUTES.HOME}
+                                            hash={link.href.split('#')[1]}
+                                            className="text-primary hover:text-primary/80 text-lg font-medium capitalize transition-colors"
+                                            onClick={onClose}
+                                        >
+                                            {link.label}
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
                         </nav>
                     </motion.div>
                 </>

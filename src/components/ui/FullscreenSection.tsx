@@ -1,8 +1,8 @@
-import React from 'react'
+import type { ReactNode } from 'react'
 
 interface FullscreenSectionProps {
-    left?: React.ReactNode
-    right?: React.ReactNode
+    left?: ReactNode
+    right?: ReactNode
     id?: string
     className?: string
 }
