@@ -21,7 +21,7 @@ export function CVExperience({ experience }: CVExperienceProps) {
             <div className="space-y-6">
                 {experience.map((exp, index) => (
                     <motion.div
-                        key={exp.company}
+                        key={exp.company + exp.period}
                         variants={fadeInUp}
                         initial="hidden"
                         animate="visible"

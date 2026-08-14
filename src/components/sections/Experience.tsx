@@ -41,7 +41,7 @@ export function Experience({ id }: ExperienceProps) {
                 >
                     {experience.slice(0, 3).map((exp, index) => (
                         <motion.div
-                            key={exp.company}
+                            key={exp.company + exp.period}
                             variants={slideInRight}
                             initial="hidden"
                             whileInView="visible"

@@ -15,7 +15,7 @@ export function CVVolunteer({ volunteer }: CVVolunteerProps) {
             <div className="space-y-6">
                 {volunteer.map((vol, index) => (
                     <motion.div
-                        key={vol.organization}
+                        key={vol.organization + vol.period}
                         variants={fadeInUp}
                         initial="hidden"
                         animate="visible"

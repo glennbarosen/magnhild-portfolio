@@ -15,7 +15,7 @@ export function CVEducation({ education }: CVEducationProps) {
             <div className="space-y-6">
                 {education.map((edu, index) => (
                     <motion.div
-                        key={edu.institution}
+                        key={edu.institution + edu.period}
                         variants={fadeInUp}
                         initial="hidden"
                         animate="visible"
