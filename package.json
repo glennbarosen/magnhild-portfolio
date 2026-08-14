@@ -19,7 +19,7 @@
         "prettier:check": "prettier --check ."
     },
     "dependencies": {
-        "@tanstack/react-router": "^1.157.16",
+        "@tanstack/react-router": "^1.170.25",
         "framer-motion": "^12.29.2",
         "lucide-react": "^0.563.0",
         "react": "^19.2.0",
