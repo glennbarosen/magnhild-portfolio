@@ -21,10 +21,16 @@ export interface Volunteer {
 
 export const experience: Experience[] = [
     {
+        title: 'Kommunikasjons- og markedskoordinator',
+        company: 'Norlandia Barnehagene',
+        type: 'Heltid',
+        period: 'apr. 2026 - Nå',
+    },
+    {
         title: 'Kommunikasjonsrådgiver og innholdsprodusent',
         company: 'Småkraft AS',
         type: 'Deltid',
-        period: 'nov. 2023 - Nå',
+        period: 'nov. 2023 - apr. 2026',
         description:
             'Tekstproduksjon, historiefortelling og innholdsproduksjon, inkludert oppdatering av nettside med WordPress og utarbeidelse av årlig bærekraftsrapport.',
     },
