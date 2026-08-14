@@ -21,20 +21,23 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
+      # No version here: corepack picks up the packageManager pin in package.json.
+      - name: Enable corepack
+        run: corepack enable
 
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version-file: .node-version
           cache: pnpm
 
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
 
+      # pnpm build, not `vite build` — the package script runs `tsc -b` first,
+      # so a type error fails the deploy instead of shipping.
       - name: Build
-        run: pnpm exec vite build
+        run: pnpm build
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
